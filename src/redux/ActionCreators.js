@@ -1,7 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 import fetch from 'cross-fetch';
-import { Errors } from 'react-redux-form';
 
 export const addComment = (comment) => ({
     type: ActionTypes.ADD_COMMENT,
