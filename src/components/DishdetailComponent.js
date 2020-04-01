@@ -25,7 +25,7 @@ import { baseUrl } from '../shared/baseUrl';
         }
         handleSubmit(values){
             this.toggleModal();
-            this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+            this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
             
         }
         render(){
@@ -115,7 +115,7 @@ import { baseUrl } from '../shared/baseUrl';
         }
     }
     
-    function RenderComments({comments, addComment, dishId}) {
+    function RenderComments({comments, postComment, dishId}) {
         if (comments != null){
             const c = comments.map((cmt) => {
                 return(
@@ -137,7 +137,7 @@ import { baseUrl } from '../shared/baseUrl';
                                 {c}
                                 </ul>
                             </CardText>
-                            <CommentForm dishId={dishId} addComment={addComment}/>
+                            <CommentForm dishId={dishId} postComment={postComment}/>
                         </CardBody>
                     </Card>
                </div>
@@ -190,7 +190,7 @@ import { baseUrl } from '../shared/baseUrl';
                     </div>
                 <div className="row">     
                     <RenderDish dish={props.dish} />
-                    <RenderComments comments={props.comments} addComment={props.addComment} dishId={props.dish.id}/>    
+                    <RenderComments comments={props.comments} postComment={props.postComment} dishId={props.dish.id}/>    
                 </div>
                 </div>
             );
